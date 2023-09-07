@@ -20,10 +20,16 @@ class CounterPage extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Consumer<CounterProvider>(
-              builder: (context, cp, child) => Text(
-                '${cp.counter.value}',
-                style: Theme.of(context).textTheme.headlineMedium,
+              builder: (context, cp, child) => Column(
+                children: [
+                  Text(
+                    '${cp.counter.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  child!,
+                ],
               ),
+              child: Text("I am not a rebuilt widget"),
             ),
           ],
         ),
